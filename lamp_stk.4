@@ -7,15 +7,17 @@
   - name: apache2
     apt:
       name:  apache2
+      state: latest
 
   - name: php support
     apt:
       name:  libapache2-mod-php
+      state: latest
 
   - name: install mysql
     apt:
       name:   mysql-server
-
+      state: latest
   - name: update apt
     apt:
           update_cache=true
