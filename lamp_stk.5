@@ -1,0 +1,28 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: apache2
+    apt:
+      name:  apache2
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: php support
+    apt:
+      name:  libapache2-mod-php
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: install mysql
+    apt:
+      name:   mysql-server
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+
+  - name: update apt
+    apt:
+          update_cache=true
+    when: ansible_distribution == "Ubuntu"
