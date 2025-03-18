@@ -1,0 +1,22 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: apache2
+    apt:
+      name:  apache2
+
+  - name: php support
+    apt:
+      name:  libapache2-mod-php
+
+  - name: install mysql
+    apt:
+      name:   apt mysql-server
+
+  - name: update apt
+    apt:
+          update_cache=true
+
