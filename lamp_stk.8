@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: apache2, php and sql
+    package:
+      name:
+        -  "{{ apachepack }}"
+        -  "{{ phpack }}"
+        -  "{{ sql }}"
+      state: latest
+          update_cache=true
+
